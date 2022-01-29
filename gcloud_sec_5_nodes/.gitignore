@@ -1,0 +1,6 @@
+cockroach-data/
+certs/
+safe-dir/
+*.key
+*.crt
+*.pemcockroach-data/

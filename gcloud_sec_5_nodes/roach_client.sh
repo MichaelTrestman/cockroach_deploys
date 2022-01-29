@@ -1,0 +1,1 @@
+cockroach sql --certs-dir=certs --host=34.134.15.116
