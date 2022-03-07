@@ -1,0 +1,1 @@
+ gcloud compute scp certs/client.root.*   $1:~/certs

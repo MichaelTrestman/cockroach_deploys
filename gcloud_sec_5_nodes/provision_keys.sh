@@ -6,6 +6,7 @@ cockroach cert create-node \
 $node1name \
 $node1addr \
 localhost \
+$lb_ip \
 $ex_ip \
 --certs-dir=certs \
 --ca-key=safe-dir/ca.key
@@ -24,6 +25,7 @@ cockroach cert create-node \
 $node2name \
 $node2addr \
 localhost \
+$lb_ip \
 $ex_ip \
 $node2addr \
 --certs-dir=certs \
@@ -45,6 +47,7 @@ cockroach cert create-node \
 $node3name \
 $node3addr \
 localhost \
+$lb_ip \
 $ex_ip \
 --certs-dir=certs \
 --ca-key=safe-dir/ca.key
@@ -63,6 +66,7 @@ cockroach cert create-node \
 $node4name \
 $node4addr \
 localhost \
+$lb_ip \
 $ex_ip \
 --certs-dir=certs \
 --ca-key=safe-dir/ca.key
@@ -81,6 +85,7 @@ cockroach cert create-node \
 $node5name \
 $node5addr \
 localhost \
+$lb_ip \
 $ex_ip \
 --certs-dir=certs \
 --ca-key=safe-dir/ca.key

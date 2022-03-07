@@ -2,7 +2,7 @@ source ./safe-dir/node_names_and_addys.sh
 
 function kill_roach_node {
 gcloud compute ssh --zone "${projectZone}"  \
---project "${projectName}" --command 'pkill -SIGKILL -x cockroach' \
+--project "${projectName}" --command 'pkill -SIGKILL -x cockroach && ls -a && rm -rf * && ls -a' \
 $nodeName
 }
 

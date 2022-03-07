@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+    crdb.io/last-applied: eyJzdGF0dXMiOnsibG9hZEJhbGFuY2VyIjp7fX0sIm1ldGFkYXRhIjp7ImxhYmVscyI6eyJhcHAua3ViZXJuZXRlcy5pby9jb21wb25lbnQiOiJkYXRhYmFzZSIsImFwcC5rdWJlcm5ldGVzLmlvL21hbmFnZWQtYnkiOiJjb2Nrcm9hY2gtb3BlcmF0b3IiLCJhcHAua3ViZXJuZXRlcy5pby9wYXJ0LW9mIjoiY29ja3JvYWNoZGIiLCJhcHAua3ViZXJuZXRlcy5pby9uYW1lIjoiY29ja3JvYWNoZGIiLCJhcHAua3ViZXJuZXRlcy5pby9pbnN0YW5jZSI6ImNvY2tyb2FjaGRiIiwiY3JkYiI6ImlzLWNvb2wiLCJhcHAua3ViZXJuZXRlcy5pby92ZXJzaW9uIjoidjIxLjEuMTEifSwiYW5ub3RhdGlvbnMiOnsicHJvbWV0aGV1cy5pby9wYXRoIjoiX3N0YXR1cy92YXJzIiwicHJvbWV0aGV1cy5pby9wb3J0IjoiODA4MCIsInByb21ldGhldXMuaW8vc2NyYXBlIjoidHJ1ZSJ9LCJvd25lclJlZmVyZW5jZXMiOlt7ImFwaVZlcnNpb24iOiJjcmRiLmNvY2tyb2FjaGxhYnMuY29tL3YxYWxwaGExIiwia2luZCI6IkNyZGJDbHVzdGVyIiwibmFtZSI6ImNvY2tyb2FjaGRiIiwidWlkIjoiZWFkZTY5NjAtZGVlZS00OGZhLWFjNzEtOWE3YWQ0ZTA0OGEwIiwiY29udHJvbGxlciI6dHJ1ZSwiYmxvY2tPd25lckRlbGV0aW9uIjp0cnVlfV0sIm5hbWUiOiJjb2Nrcm9hY2hkYiIsIm5hbWVzcGFjZSI6ImNvY2tyb2FjaC1vcGVyYXRvci1zeXN0ZW0ifSwic3BlYyI6eyJwb3J0cyI6W3sibmFtZSI6ImdycGMiLCJwb3J0IjoyNjI1OH0seyJuYW1lIjoiaHR0cCIsInBvcnQiOjgwODB9LHsibmFtZSI6InNxbCIsInBvcnQiOjI2MjU3fV0sInNlbGVjdG9yIjp7ImFwcC5rdWJlcm5ldGVzLmlvL25hbWUiOiJjb2Nrcm9hY2hkYiIsImFwcC5rdWJlcm5ldGVzLmlvL2luc3RhbmNlIjoiY29ja3JvYWNoZGIiLCJhcHAua3ViZXJuZXRlcy5pby9jb21wb25lbnQiOiJkYXRhYmFzZSIsImNyZGIiOiJpcy1jb29sIn0sImNsdXN0ZXJJUCI6Ik5vbmUiLCJwdWJsaXNoTm90UmVhZHlBZGRyZXNzZXMiOnRydWV9fQ==
+    prometheus.io/path: _status/vars
+    prometheus.io/port: "8080"
+    prometheus.io/scrape: "true"
+  creationTimestamp: "2022-02-26T00:08:36Z"
+  labels:
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: cockroachdb
+    app.kubernetes.io/managed-by: cockroach-operator
+    app.kubernetes.io/name: cockroachdb
+    app.kubernetes.io/part-of: cockroachdb
+    app.kubernetes.io/version: v21.1.11
+    crdb: is-cool
+  name: cockroachdb
+  namespace: cockroach-operator-system
+  ownerReferences:
+  - apiVersion: crdb.cockroachlabs.com/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: CrdbCluster
+    name: cockroachdb
+    uid: eade6960-deee-48fa-ac71-9a7ad4e048a0
+  resourceVersion: "7668258"
+  uid: a9f1dad8-6a4e-4afe-be45-ae7b6fde7772
+spec:
+  clusterIP: None
+  clusterIPs:
+  - None
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: grpc
+    port: 26258
+    protocol: TCP
+    targetPort: 26258
+  - name: http
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  - name: sql
+    port: 26257
+    protocol: TCP
+    targetPort: 26257
+  publishNotReadyAddresses: true
+  selector:
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: cockroachdb
+    app.kubernetes.io/name: cockroachdb
+    crdb: is-cool
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
